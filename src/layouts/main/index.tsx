@@ -1,10 +1,10 @@
 import React from 'react';
+import { Loading } from '../../components';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { Text } from 'react-native';
 import { AppNavigatorParamList } from '../../navigation/app.navigator';
 import { useQuery } from '@apollo/client';
+import { CharactersList } from './components/characters-list.component';
 import { RETRIEVE_CHARACTERS } from '../../graphql/character.query';
-import { Loading } from '../../components';
 
 type MainScreenNavigationProp = NativeStackNavigationProp<
   AppNavigatorParamList,
@@ -22,5 +22,5 @@ export default (_: MainScreenProps) => {
     return <Loading />;
   }
 
-  return <Text>{JSON.stringify(data)}</Text>;
+  return <CharactersList data={data.characters.results} />;
 };

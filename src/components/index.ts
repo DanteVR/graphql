@@ -1,2 +1,3 @@
 import { Loading } from './loading.component';
-export { Loading };
+import { Card } from './card.component';
+export { Loading, Card };
