@@ -1,21 +1,22 @@
 import React, { useCallback } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, ListRenderItem } from 'react-native';
 import { Item } from '../components/item.component';
+import { Character } from '../../../schemas/character.schema';
 
 interface ListProps {
-  data: any;
+  characters: Character[];
 }
 
-export const CharactersList = ({ data }: ListProps) => {
-  const renderItem = useCallback(
-    ({ item: { image } }: any) => <Item image={image} />,
+export const CharactersList = ({ characters }: ListProps) => {
+  const renderItem: ListRenderItem<Character> = useCallback(
+    ({ item }) => <Item character={item} />,
     [],
   );
 
   return (
     <FlatList
       numColumns={2}
-      data={data}
+      data={characters}
       renderItem={renderItem}
       keyExtractor={character => character.id.toString()}
     />

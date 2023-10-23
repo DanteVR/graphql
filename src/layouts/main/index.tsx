@@ -5,8 +5,9 @@ import { AppNavigatorParamList } from '../../navigation/app.navigator';
 import { useQuery } from '@apollo/client';
 import { CharactersList } from './components/characters-list.component';
 import { RETRIEVE_CHARACTERS } from '../../graphql/character.query';
+import { Characters } from '../../schemas/character.schema';
 
-type MainScreenNavigationProp = NativeStackNavigationProp<
+export type MainScreenNavigationProp = NativeStackNavigationProp<
   AppNavigatorParamList,
   'Main'
 >;
@@ -16,11 +17,11 @@ export type MainScreenProps = {
 };
 
 export default (_: MainScreenProps) => {
-  const { data, loading } = useQuery(RETRIEVE_CHARACTERS);
+  const { data, loading } = useQuery<Characters>(RETRIEVE_CHARACTERS);
 
   if (loading) {
     return <Loading />;
   }
 
-  return <CharactersList data={data.characters.results} />;
+  return <CharactersList characters={data?.characters.results!} />;
 };

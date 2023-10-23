@@ -1,21 +1,24 @@
 import React from 'react';
 import { Card } from '../../../components';
 import { Image, StyleSheet } from 'react-native';
-import { screen, utilities } from '../../../utils/constants';
+import { screen } from '../../../utils/constants';
+import { MainScreenNavigationProp } from '..';
 import { useNavigation } from '@react-navigation/native';
+import { Character } from '../../../schemas/character.schema';
 
 interface ItemProps {
-  image: string;
+  character: Character;
 }
 
-export const Item = ({ image }: ItemProps) => {
-  const navigation = useNavigation();
+export const Item = ({ character }: ItemProps) => {
+  const navigation = useNavigation<MainScreenNavigationProp>();
+
   return (
-    <Card onPress={() => navigation.goBack()}>
+    <Card onPress={() => navigation.navigate('Detail', { ...character })}>
       <Image
         style={styles.image}
         source={{
-          uri: image,
+          uri: character.image,
         }}
       />
     </Card>
@@ -27,6 +30,5 @@ const styles = StyleSheet.create({
     width: screen.width / 2,
     height: screen.width / 2,
     resizeMode: 'cover',
-    borderRadius: utilities.borderRadius,
   },
 });

@@ -3,12 +3,13 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { MainScreen } from '../scenes/main/main.component';
 import { DetailScreen } from '../scenes/detail/detail.component';
+import { Character } from '../schemas/character.schema';
 
 const Stack = createNativeStackNavigator();
 
 export type AppNavigatorParamList = {
   Main: undefined;
-  Detail: undefined;
+  Detail: Character;
 };
 
 export const AppNavigator = (): React.ReactElement => {

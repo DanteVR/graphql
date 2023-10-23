@@ -1,6 +1,6 @@
 import React from 'react';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RouteProp } from '@react-navigation/native';
+// import { RouteProp } from '@react-navigation/native';
 import { AppNavigatorParamList } from '../../navigation/app.navigator';
 import { Text } from 'react-native';
 
@@ -9,11 +9,11 @@ type RouteScreenNavigationProp = NativeStackNavigationProp<
   'Detail'
 >;
 
-type DetailScreenRouteProp = RouteProp<AppNavigatorParamList, 'Detail'>;
+// type DetailScreenRouteProp = RouteProp<AppNavigatorParamList, 'Detail'>;
 
 export type DetailScreenProps = {
   navigation: RouteScreenNavigationProp;
-  route: DetailScreenRouteProp;
+  // route: DetailScreenRouteProp;
 };
 
 export default (_: DetailScreenProps): React.ReactElement => {

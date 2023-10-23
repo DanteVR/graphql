@@ -4,7 +4,6 @@ import {
   TouchableOpacity,
   TouchableOpacityProps,
 } from 'react-native';
-import { screen, utilities } from '../utils/constants';
 
 export interface CardProps extends TouchableOpacityProps {}
 
@@ -22,8 +21,6 @@ export const Card = ({ children, style, ...next }: CardProps) => {
 const styles = StyleSheet.create({
   card: {
     flex: 1,
-    backgroundColor: '#fff',
-    borderRadius: utilities.borderRadius,
-    height: screen.width / 2,
+    backgroundColor: '#000',
   },
 });
