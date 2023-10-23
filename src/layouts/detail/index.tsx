@@ -1,21 +1,23 @@
 import React from 'react';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-// import { RouteProp } from '@react-navigation/native';
+import { RouteProp } from '@react-navigation/native';
 import { AppNavigatorParamList } from '../../navigation/app.navigator';
-import { Text } from 'react-native';
+import { Info } from './components/info.component';
 
-type RouteScreenNavigationProp = NativeStackNavigationProp<
+type DetailScreenNavigationProp = NativeStackNavigationProp<
   AppNavigatorParamList,
   'Detail'
 >;
 
-// type DetailScreenRouteProp = RouteProp<AppNavigatorParamList, 'Detail'>;
+type DetailScreenRouteProp = RouteProp<AppNavigatorParamList, 'Detail'>;
 
 export type DetailScreenProps = {
-  navigation: RouteScreenNavigationProp;
-  // route: DetailScreenRouteProp;
+  navigation: DetailScreenNavigationProp;
+  route: DetailScreenRouteProp;
 };
 
-export default (_: DetailScreenProps): React.ReactElement => {
-  return <Text>Detail</Text>;
+export default ({
+  route: { params },
+}: DetailScreenProps): React.ReactElement => {
+  return <Info character={params} />;
 };

@@ -16,7 +16,7 @@ export type MainScreenProps = {
   navigation: MainScreenNavigationProp;
 };
 
-export default (_: MainScreenProps) => {
+export default (_: MainScreenProps): React.ReactElement => {
   const { data, loading } = useQuery<Characters>(RETRIEVE_CHARACTERS);
 
   if (loading) {
