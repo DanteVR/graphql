@@ -7,9 +7,14 @@ interface BadgeProps extends ViewProps {
   text: string;
 }
 
-export const Badge = ({ type = 'primary', text, ...next }: BadgeProps) => {
+export const Badge = ({
+  type = 'primary',
+  style,
+  text,
+  ...next
+}: BadgeProps) => {
   return (
-    <View {...next} style={[styles.badge, styles[type]]}>
+    <View {...next} style={[styles.badge, styles[type], style]}>
       <Text style={styles.label}>{text}</Text>
     </View>
   );

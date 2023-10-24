@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders correctly with the given text 1`] = `
+<View
+  style={
+    [
+      {
+        "alignSelf": "flex-start",
+        "backgroundColor": "#081B33",
+        "borderRadius": 4,
+        "marginBottom": 12,
+        "padding": 8,
+      },
+      {
+        "backgroundColor": "#081B33",
+      },
+      undefined,
+    ]
+  }
+>
+  <Text
+    style={
+      {
+        "color": "#fff",
+      }
+    }
+  >
+    This is a text
+  </Text>
+</View>
+`;
